@@ -3,6 +3,9 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
+import Chaptertest from './components/Chaptertest.vue';
+
+Vue.component('chapter-test', Chaptertest);
 
 Vue.config.productionTip = false;
 
