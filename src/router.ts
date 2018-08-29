@@ -8,7 +8,7 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: () =>import('./components/Ready.vue'),
+      component: () =>import('./views/Ready.vue'),
     },
     {
       path: '/InputStage1',
@@ -24,6 +24,6 @@ export default new Router({
       path: '/Specifications',
       name: 'TribesSquadsChapters',
       component: () => import ('./views/Test.vue'),
-    },
+    }
   ],
 });

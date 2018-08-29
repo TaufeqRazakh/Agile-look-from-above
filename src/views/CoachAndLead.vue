@@ -1,15 +1,13 @@
 <template>    
     <div id="inputs">
         <h2>Who is the Agile coach?</h2>
-        <p>(hint: This is someone who is responsible for creating your team)</p>
-        <input v-model="AgileCoachName">
-        <agile-coach :agile-coach-name = "AgileCoachName"></agile-coach>
-        <p>{{AgileCoachName}}</p>
+        <p v-if="AgileCoachName === 'Foo' || AgileCoachName === ''">(hint: This is someone who is responsible for creating your team)</p>
+        <p v-else>{{AgileCoachName}}</p>
+        <input v-model.trim="AgileCoachName" @input="InputCoachName">
         <h2>Who is the tribe leader?</h2>
-        <p>(hint: This is someone who is responsible for the value your team creates)</p>   
-        <input v-model="TribeLeadName"> 
-        <tribe-lead :tribe-lead-name="TribeLeadName"></tribe-lead>
-        <p>{{TribeLeadName}}</p>
+        <p v-if="TribeLeadName === 'Bar' || TribeLeadName === ''">(hint: This is someone who is responsible for the value your team creates)</p>
+        <p v-else>{{TribeLeadName}}</p>
+        <input v-model.trim="TribeLeadName" @input="InputLeadName"> 
         <div id = "nav">
             <router-link to="/Team">Team Structure</router-link> | 
             <router-link to="/Specifications">Specify More</router-link>
@@ -19,19 +17,22 @@
 
 <script lang="ts">
 import Vue from 'vue'; 
-import TribeLead from '../components/TribeLead.vue';
-import AgileCoach from '../components/AgileCoach.vue';
 export default Vue.extend({
-    components: {
-        'tribe-lead': TribeLead,
-        'agile-coach': AgileCoach,
-    },
     data () {
         return {
-            AgileCoachName: 'Foo',
-            TribeLeadName: 'Bar',
+            AgileCoachName: this.$store.state.agileCoachName,
+            TribeLeadName: this.$store.state.tribeLeadName,
             Dummy: 'dumbdumb',
         }
+    },
+    methods: {
+        InputCoachName: function(event: any) {
+            this.$store.commit('addAgileCoachName', event.target.value);
+        },
+        InputLeadName: function(event: any) {
+            this.$store.commit('addTribeLeadName', event.target.value);
+        }
+                        
     }
 })
 </script>

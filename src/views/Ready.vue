@@ -41,6 +41,7 @@ export default Vue.extend({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  padding-block-start: 30px;
 }
 #greeting h1{
 	color: #42b983;
