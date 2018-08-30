@@ -21,9 +21,9 @@ export default new Router({
       component:() => import('./views/TeamStructure.vue'),
     },
     {
-      path: '/Specifications',
+      path: '/InputStage2',
       name: 'TribesSquadsChapters',
-      component: () => import ('./views/Test.vue'),
+      component: () => import ('./views/ChaptersInput.vue'),
     }
   ],
 });

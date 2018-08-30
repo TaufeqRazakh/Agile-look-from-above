@@ -10,7 +10,7 @@
         <input v-model.trim="TribeLeadName" @input="InputLeadName"> 
         <div id = "nav">
             <router-link to="/Team">Team Structure</router-link> | 
-            <router-link to="/Specifications">Specify More</router-link>
+            <router-link to="/InputStage2">Specify More</router-link>
         </div>
     </div>
 </template>
