@@ -8,7 +8,9 @@ export default new Vuex.Store({
   state: {
     agileCoachName : 'Foo',
     tribeLeadName : 'Bar',
-    chapters: [],    
+    chapters: [{id: 1, name: 'mechanic', listed: true},
+               {id: 2, name: 'web developer', listed: true},
+               {id: 3, name: 'molecular biologist', listed: true}],
   },
   mutations: {
     addAgileCoachName(state, name) {
@@ -17,6 +19,9 @@ export default new Vuex.Store({
     addTribeLeadName(state, name) {
       state.tribeLeadName = name;
     },
+    addChapter(state, name: string) {
+      state.chapters.push({id: (state.chapters.length)++, name: name, listed: true});
+    }
   },
   actions: {
 

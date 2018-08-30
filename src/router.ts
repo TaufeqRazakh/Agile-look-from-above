@@ -22,8 +22,13 @@ export default new Router({
     },
     {
       path: '/InputStage2',
-      name: 'TribesSquadsChapters',
+      name: 'Chapters',
       component: () => import ('./views/ChaptersInput.vue'),
+    },
+    {
+      path: '/InputStage3',
+      name: 'Squads',
+      component: () => import('./views/Test.vue'),
     }
   ],
 });
