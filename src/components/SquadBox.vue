@@ -1,6 +1,6 @@
 <template>
 	<div>
-        {{ Squad.name }}
+        {{ squad.name }}
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 import Vue from 'vue'
 export default Vue.extend({
     props: {
-        Squad: {
+        squad: {
             type: Object,
             required: true,
         }

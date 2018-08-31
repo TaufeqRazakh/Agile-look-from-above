@@ -2,13 +2,15 @@
 	<div>
 		<div id="input">
 			<h2>Now lets set the squads in our tribe</h2>
-			<p v-if="noWarning">(hint: Squads are divisions of value addition channels in your tribe. 
+			<p v-if="noWarning && noCopies">(hint: Squads are divisions of value addition channels in your tribe. 
 				<br>Each squad contibutes to the final product with a level of autonomy)</p>
+			<p v-else-if="!noCopies">That Squad was already assigned</p>
+			<p v-else-if="!noWarning">Lets try to get this work done in 10 squads for now</p>
 			<p v-else>Lets see if you can finish the project with fewer squads for now</p>
-			<input type="text" v-model="newSquad" @keyup.enter="UpdateChapter">
+			<input type="text" v-model="newSquad" @keyup.enter="UpdateSquad" @input="CheckExisting">
 		</div>
 		<div id = "list">
-			<squad-box></squad-box>	
+			<squad-box v-for="squad in squadRef" :key="squad.id" :squad="squad"></squad-box>	
 		</div>	
 		<div id = "nav">
             <router-link to="/Team">Team Structure</router-link> | 
@@ -25,30 +27,43 @@ export default Vue.extend ({
   data() {
   	return {
 		newSquad: '',
+		squadRef: this.$store.state.Squads,
 		chapterRef: [{id: 0, name: '', listed:false}],
 		noWarning: true,
+		noCopies: true,
   	}
   },
   components: {
-  	ItemWithRemoveButton, SquadBox
+  	ItemWithRemoveButton, 
+  	SquadBox
   },
   methods: {
-  	UpdateChapter: function(event: any) {
-  		if(this.$store.state.chapters.length < 10) {
-			  this.$store.commit('addChapter', event.target.value);
+  	UpdateSquad: function(event: any) {
+  		if(this.$store.state.Squads.length < 10 && this.noCopies) {
+			  this.$store.commit('addSquad', event.target.value);
 			  this.newSquad = '';
-			  this.showValue = event.target.value;
 			  this.noWarning = true;
 		}
 		else {
 			this.noWarning = false;
 		}
-	}
-  	RemoveChapter: function(event: any) {
-  		// going to update the list by accessing store here 
-  		console.log("okay okay okay ");
-  		this.noWarning = true;
-  	}
+	},
+	CheckExisting: function(event: any) {
+		for(var i = 0; i< this.squadRef.length; i++) {
+			if(this.squadRef[i].name === event.target.value) {
+				this.noCopies = false;
+				break;
+			}
+			else 
+				this.noCopies = true;
+		}
+	}  
   }
-});
+ //  	RemoveChapter: function(event: any) {
+ //  		// going to update the list by accessing store here 
+ //  		console.log("okay okay okay ");
+ //  		this.noWarning = true;
+ //  	}
+ //  }
+})
 </script>

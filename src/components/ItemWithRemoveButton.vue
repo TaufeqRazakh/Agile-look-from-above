@@ -1,7 +1,7 @@
 <template>
 	<div id="input">
 		{{listItem.name}}
-		<button @click="$emit('removeItem', listItem.id)">x</button>
+		<button @click="$emit('removeItem', listItem.id)">x</button> 
 	</div>
 </template>
 
