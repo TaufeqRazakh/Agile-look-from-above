@@ -28,7 +28,7 @@ export default new Router({
     {
       path: '/InputStage3',
       name: 'Squads',
-      component: () => import('./views/Test.vue'),
+      component: () => import('./views/SquadsInput.vue'),
     }
   ],
 });

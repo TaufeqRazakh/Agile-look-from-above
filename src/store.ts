@@ -20,7 +20,7 @@ export default new Vuex.Store({
       state.tribeLeadName = name;
     },
     addChapter(state, name: string) {
-      state.chapters.push({id: (state.chapters.length)++, name: name, listed: true});
+      state.chapters.push({id: (state.chapters.length)+1, name: name, listed: true});
     }
   },
   actions: {

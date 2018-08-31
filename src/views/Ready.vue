@@ -25,7 +25,7 @@ export default Vue.extend({
 			if (time<12) {
 				greetString = "Good Morning";
 			}
-			if(time>12 && time< 13) {
+			if(time>12 && time< 16) {
 				greetString = "Good Afternoon";
 			}
 			return greetString;

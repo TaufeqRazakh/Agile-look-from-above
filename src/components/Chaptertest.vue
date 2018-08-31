@@ -7,7 +7,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Chapter } from '../Chapter';
 
 let chaptertest: string;
 

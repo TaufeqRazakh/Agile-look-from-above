@@ -1,7 +1,7 @@
 <template>
 	<div id="input">
 		{{listItem.name}}
-		<button @click="$emit('removeItem', listItem.name)">x</button>
+		<button @click="$emit('removeItem', listItem.id)">x</button>
 	</div>
 </template>
 
@@ -13,9 +13,6 @@ export default Vue.extend({
 		  type: Object,
 		  required: true
 		}
-	},
-	computed: {
-
 	}
 });
 </script>
