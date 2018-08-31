@@ -6,16 +6,13 @@
 				<br>Each squad contibutes to the final product with a level of autonomy)</p>
 			<p v-else>Lets see if you can finish the project with fewer squads for now</p>
 			<input type="text" v-model="newSquad" @keyup.enter="UpdateChapter">
-			<p>dev:Value that went in {{showValue}}, was supposed to be {{newSquad}}</p>
-			<span>{{loadChaptersIntoRef}}</span>
 		</div>
 		<div id = "list">
-			<item-with-remove-button v-for="chapter in chapterRef" :key="chapter.id"
-			:list-item="chapter" @removeItem="RemoveChapter"></item-with-remove-button>	
+			<squad-box></squad-box>	
 		</div>	
 		<div id = "nav">
             <router-link to="/Team">Team Structure</router-link> | 
-            <router-link to="/InputStage3">Keep Specifying</router-link>
+            <router-link to="/InputStage2">Go Back</router-link>
         </div>
 	</div>
 </template>
@@ -23,17 +20,17 @@
 <script lang="ts">
 import Vue from 'vue';
 import ItemWithRemoveButton from '../components/ItemWithRemoveButton.vue';
+import SquadBox from '../components/SquadBox.vue';
 export default Vue.extend ({
   data() {
   	return {
 		newSquad: '',
-		showValue: '',
 		chapterRef: [{id: 0, name: '', listed:false}],
 		noWarning: true,
   	}
   },
   components: {
-  	ItemWithRemoveButton
+  	ItemWithRemoveButton, SquadBox
   },
   methods: {
   	UpdateChapter: function(event: any) {
@@ -46,17 +43,12 @@ export default Vue.extend ({
 		else {
 			this.noWarning = false;
 		}
-  	},
+	}
   	RemoveChapter: function(event: any) {
   		// going to update the list by accessing store here 
   		console.log("okay okay okay ");
   		this.noWarning = true;
   	}
-  },
-  computed: {
-	  loadChaptersIntoRef: function() {
-		  this.chapterRef = this.$store.state.chapters;
-	  }
   }
 });
 </script>

@@ -2,9 +2,10 @@
 	<div>
 		<div id="input">
 			<h2>Type in all the Chapters in the team</h2>
-			<p v-if="noWarning">(hint: This refers to the capabilites or skills in your team, say, cartoonists, machinists, copy writers)</p>
-			<p v-else>Lets see if you can bundle up listing your chapters in a better way</p>
-			<input type="text" v-model="newChapter" @keyup.enter="UpdateChapter">
+			<p v-if="noWarning && noCopies">(hint: This refers to the capabilites or skills in your team, say, cartoonists, machinists, copy writers)</p>
+			<p v-else-if="!noCopies">I sense you already mentioned that chapter</p>
+			<p v-else-if="!noWarning">Lets bundle up all skills in 10 chapters for now</p>
+			<input type="text" v-model="newChapter" @keyup.enter="UpdateChapter" @input="CheckExisting">
 		</div>
 		<div id = "list">
 			<item-with-remove-button v-for="chapter in chapterRef" :key="chapter.id"
@@ -26,6 +27,7 @@ export default Vue.extend ({
 		newChapter: '',
 		chapterRef: this.$store.state.chapters,
 		noWarning: true,
+		noCopies: true,
   	}
   },
   components: {
@@ -33,20 +35,30 @@ export default Vue.extend ({
   },
   methods: {
   	UpdateChapter: function(event: any) {
-  		if(this.$store.state.chapters.length < 10) {
-			  this.$store.commit('addChapter', this.newChapter);
-			  this.newChapter = '';
-			  this.noWarning = true;
+  		if(this.$store.state.chapters.length < 10 && this.noCopies) {
+			this.$store.commit('addChapter', this.newChapter);
+			this.newChapter = '';
+			this.noWarning = true;
 		}
-		else {
+		else if(this.$store.state.chapters.length >=10 ) {
 			this.noWarning = false;
 		}
   	},
   	RemoveChapter: function(event: number) {
-  		// going to update the list by accessing store here
-  		console.log(event); 
-  		this.noWarning = true;
-  	}
+		  // going to update the list by accessing store here
+		this.$store.commit('fixChapterId', event);
+		this.chapterRef = this.$store.state.chapters;  
+	  },
+	CheckExisting: function(event: any) {
+		for(var i = 0; i< this.chapterRef.length; i++) {
+			if(this.chapterRef[i].name === event.target.value) {
+				this.noCopies = false;
+				break;
+			}
+			else 
+				this.noCopies = true;
+		}
+	}  
   }
 });
 </script>

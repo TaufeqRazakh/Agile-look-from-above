@@ -21,6 +21,12 @@ export default new Vuex.Store({
     },
     addChapter(state, name: string) {
       state.chapters.push({id: (state.chapters.length)+1, name: name, listed: true});
+    },
+    fixChapterId(state, id:number) {
+      state.chapters = state.chapters.filter(chapter => chapter.id !== id);
+      // for(var _i:number = id; _i<state.chapters.length; _i++) {
+        
+      // }
     }
   },
   actions: {
