@@ -8,7 +8,7 @@
 			<p v-else-if="!noWarning">Lets try to get this work done in 10 squads for now</p>
 			<p v-else>Lets see if you can finish the project with fewer squads for now</p>
 			
-			<input type="text" v-model="newSquad" @keyup.enter="UpdateSquad" @input="CheckExisting">
+			<input type="text" v-model="newSquad" placeholder="Ski Equipment, Straps,..." @keyup.enter="UpdateSquad" @input="CheckExisting">
 		</div>
 		<div id = "list">
 			<squad-box v-for="squad in squadRef" :key="squad.id" :squad="squad" @removeSquad="removeSquad"></squad-box>	

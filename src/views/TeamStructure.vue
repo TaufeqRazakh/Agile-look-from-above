@@ -8,9 +8,6 @@
             </div>
             <div class = "tribe">{{Tribe}}</div>
             <div class= "coach">{{Coach}}</div>
-
-           
-
         </div>
         <div id = "nav">
             <router-link to="/InputStage3">Go back</router-link>

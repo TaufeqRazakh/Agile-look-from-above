@@ -5,7 +5,7 @@
 			<p v-if="noWarning && noCopies">(hint: This refers to the capabilites or skills in your team, say, cartoonists, machinists, copy writers)</p>
 			<p v-else-if="!noCopies">I sense you already mentioned that chapter</p>
 			<p v-else-if="!noWarning">Lets bundle up all skills in 10 chapters for now</p>
-			<input type="text" v-model="newChapter" @keyup.enter="UpdateChapter" @input="CheckExisting">
+			<input type="text" placeholder="audit, design,..." v-model="newChapter" @keyup.enter="UpdateChapter" @input="CheckExisting">
 		</div>
 		<div id = "list">
 			<item-with-remove-button v-for="chapter in chapterRef" :key="chapter.id"
