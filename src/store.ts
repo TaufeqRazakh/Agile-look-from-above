@@ -11,7 +11,7 @@ export default new Vuex.Store({
     chapters: [{id: 1, name: 'chemist', listed: true},
                {id: 2, name: 'web developer', listed: true},
                {id: 3, name: 'molecular biologist', listed: true}],
-    Squads: [ {id:1, name: 'DNA Sampling', lead: 'Vlad', chapters:[1,2]},
+    squads: [ {id:1, name: 'DNA Sampling', lead: 'Vlad', chapters:[1,2]},
               {id:2, name: 'Protien Substitute', lead:'yuri', chapters:[1,2,3]} ]
   },
   mutations: {
@@ -31,8 +31,17 @@ export default new Vuex.Store({
       }
     },
     addSquad(state, name: string) {
-      state.Squads.push({id: (state.Squads.length)+1, name: name, lead:'', chapters:[]});
+      state.squads.push({id: (state.squads.length)+1, name: name, lead:'', chapters:[]});
     },
+    addChapterToSquad(state, payload: object) {
+      state.squads[payload.squadId-1].chapters.push(payload.chapterId);
+      state.squads[payload.squadId-1].chapters.sort();
+      console.log(state.squads[payload.squadId-1].chapters+" "+state.squads[payload.squadId-1].name);
+    },
+    removeChapterFromSquad(state, payload: object) {
+      state.squads[payload.squadId-1].chapters = state.squads[payload.squadId-1].chapters.filter(chapterRef => chapterRef !== payload.chapterId);
+      console.log(state.squads[payload.squadId-1].chapters+" "+state.squads[payload.squadId-1].name);
+    }
   },
   actions: {
 

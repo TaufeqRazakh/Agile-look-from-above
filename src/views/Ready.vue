@@ -2,8 +2,8 @@
 	<div id="greeting">
 		<h1>Hello! {{greet}}</h1>
 		<h2>This application is meant to illustrate the structure in an Agile team. <br>
-		You can also try putting members of your team into tribes, squads and chapters to 
-		<br> visualize your operation structure. </h2>
+		You can visualize your team in terms of tribes, squads and chapters at any time by 
+		<br> going to the "Team Structure" section after specifying some details.</h2>
 		<p>To learn more about agile teams may I suggest this
 			<a href="https://www.mckinsey.com/business-functions/organization/our-insights/the-agile-manager" target="_blank"
 			rel="noopener"> McKinsey article</a>
@@ -31,7 +31,7 @@ export default Vue.extend({
 			return greetString;
 		}
 	}
-})
+});
 </script>
 
 <style scoped>

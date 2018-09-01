@@ -1,5 +1,6 @@
 <template>
     <div>
+        <span>{{statePhase}}</span>
         <input type="checkbox" id="chapter-option" @input="inputListener" v-model="status">
         <label for="chapter-option">{{ value.name }}</label>
     </div>
@@ -11,28 +12,34 @@ export default Vue.extend({
         value: {
             type: Object,
             required: true,
-        }
+        },
+        squadId: Number,
     },
     data() {
-        return { 
-            status: false,
+        return {
+            status: false
         }
     },
     methods: {
         inputListener: function() {
             //yes the status is a bit twisted if you check the console so check for negation if selected
             if(this.status != true) {
-                console.log(this.value.name+" is what you selected");
+                this.$emit("selectedChapter", this.value.id);
+                // console.log(this.value.id+" is what you selected");
             }
             else {
-                console.log(this.value.name+" is what you deselected");
+                this.$emit("deSelectedChapter", this.value.id);
+                // console.log(this.value.id+" is what you deselected");
             }
-            // console.log("input"+ this.status)
-        },
-        emitEvaluator: function() {
-
+        }
+    },
+    computed: {
+        statePhase: function() {
+            if(this.$store.state.squads[this.squadId-1].chapters.includes(this.value.id)) {
+                this.status = true;
+            }
         }
     }
-})
+});
 </script>
 

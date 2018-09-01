@@ -27,7 +27,7 @@ export default Vue.extend ({
   data() {
   	return {
 		newSquad: '',
-		squadRef: this.$store.state.Squads,
+		squadRef: this.$store.state.squads,
 		chapterRef: [{id: 0, name: '', listed:false}],
 		noWarning: true,
 		noCopies: true,
@@ -39,7 +39,7 @@ export default Vue.extend ({
   },
   methods: {
   	UpdateSquad: function(event: any) {
-  		if(this.$store.state.Squads.length < 10 && this.noCopies) {
+  		if(this.$store.state.squads.length < 10 && this.noCopies) {
 			  this.$store.commit('addSquad', event.target.value);
 			  this.newSquad = '';
 			  this.noWarning = true;
@@ -59,11 +59,5 @@ export default Vue.extend ({
 		}
 	}  
   }
- //  	RemoveChapter: function(event: any) {
- //  		// going to update the list by accessing store here 
- //  		console.log("okay okay okay ");
- //  		this.noWarning = true;
- //  	}
- //  }
-})
+});
 </script>
