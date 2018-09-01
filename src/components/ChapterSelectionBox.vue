@@ -13,7 +13,10 @@ export default Vue.extend({
             type: Object,
             required: true,
         },
-        squadId: Number,
+        squadChapterIndexes: {
+            type: Array,
+            required: true,
+        },
     },
     data() {
         return {
@@ -35,8 +38,7 @@ export default Vue.extend({
     },
     computed: {
         statePhase: function() {
-            console.log("at error site"+this.squadId);
-            if(this.$store.state.squads[this.squadId-1].chapters.includes(this.value.id)) {
+            if(this.squadChapterIndexes.includes(this.value.id)) {
                 this.status = true;
             }
         }

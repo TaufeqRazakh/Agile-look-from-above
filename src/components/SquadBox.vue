@@ -2,7 +2,7 @@
 	<div>
         {{ squad.name }} <button @click="$emit('removeSquad',squad.id)">x</button>  <br> 
         <chapter-selection-box v-for="chapter in chapters" :key="chapter.id" 
-        :value="chapter" :squad-id="squadIdRef" @selectedChapter="addChapterId"
+        :value="chapter" :squad-chapter-indexes="squad.chapters" @selectedChapter="addChapterId"
         @deSelectedChapter="removeChapterId"></chapter-selection-box>
     </div>
 </template>

@@ -7,6 +7,7 @@
 			<p v-else-if="!noCopies">That Squad was already assigned</p>
 			<p v-else-if="!noWarning">Lets try to get this work done in 10 squads for now</p>
 			<p v-else>Lets see if you can finish the project with fewer squads for now</p>
+			
 			<input type="text" v-model="newSquad" @keyup.enter="UpdateSquad" @input="CheckExisting">
 		</div>
 		<div id = "list">
@@ -21,7 +22,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import ItemWithRemoveButton from '../components/ItemWithRemoveButton.vue';
 import SquadBox from '../components/SquadBox.vue';
 export default Vue.extend ({
   data() {
@@ -34,7 +34,6 @@ export default Vue.extend ({
   	}
   },
   components: {
-  	ItemWithRemoveButton, 
   	SquadBox
   },
   methods: {
@@ -59,7 +58,8 @@ export default Vue.extend ({
 		}
 	},
 	removeSquad: function(event: number) {
-		this.$store.commit('removeSquad', event);	
+		this.$store.commit('removeSquad', event);
+		this.squadRef= this.$store.state.squads;	
 	}  
   }
 });

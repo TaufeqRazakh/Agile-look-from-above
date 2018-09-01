@@ -13,7 +13,7 @@
 
         </div>
         <div id = "nav">
-            <router-link to="/InputStage1">Go back</router-link>
+            <router-link to="/InputStage3">Go back</router-link>
         </div>
     </div>
 </template>
