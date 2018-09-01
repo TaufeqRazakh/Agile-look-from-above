@@ -33,14 +33,17 @@ export default new Vuex.Store({
     addSquad(state, name: string) {
       state.squads.push({id: (state.squads.length)+1, name: name, lead:'', chapters:[]});
     },
+    removeSquad(state, id: number) {
+      state.squads = state.squads.filter(squad => squad.id !== id);
+    },
     addChapterToSquad(state, payload: object) {
       state.squads[payload.squadId-1].chapters.push(payload.chapterId);
       state.squads[payload.squadId-1].chapters.sort();
-      console.log(state.squads[payload.squadId-1].chapters+" "+state.squads[payload.squadId-1].name);
+      // console.log(state.squads[payload.squadId-1].chapters+" "+state.squads[payload.squadId-1].name);
     },
     removeChapterFromSquad(state, payload: object) {
       state.squads[payload.squadId-1].chapters = state.squads[payload.squadId-1].chapters.filter(chapterRef => chapterRef !== payload.chapterId);
-      console.log(state.squads[payload.squadId-1].chapters+" "+state.squads[payload.squadId-1].name);
+      // console.log(state.squads[payload.squadId-1].chapters+" "+state.squads[payload.squadId-1].name);
     }
   },
   actions: {

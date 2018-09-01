@@ -10,7 +10,7 @@
 			<input type="text" v-model="newSquad" @keyup.enter="UpdateSquad" @input="CheckExisting">
 		</div>
 		<div id = "list">
-			<squad-box v-for="squad in squadRef" :key="squad.id" :squad="squad"></squad-box>	
+			<squad-box v-for="squad in squadRef" :key="squad.id" :squad="squad" @removeSquad="removeSquad"></squad-box>	
 		</div>	
 		<div id = "nav">
             <router-link to="/Team">Team Structure</router-link> | 
@@ -57,6 +57,9 @@ export default Vue.extend ({
 			else 
 				this.noCopies = true;
 		}
+	},
+	removeSquad: function(event: number) {
+		this.$store.commit('removeSquad', event);	
 	}  
   }
 });

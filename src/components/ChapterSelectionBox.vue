@@ -35,6 +35,7 @@ export default Vue.extend({
     },
     computed: {
         statePhase: function() {
+            console.log("at error site"+this.squadId);
             if(this.$store.state.squads[this.squadId-1].chapters.includes(this.value.id)) {
                 this.status = true;
             }

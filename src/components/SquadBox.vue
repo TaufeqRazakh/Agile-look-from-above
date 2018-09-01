@@ -1,6 +1,6 @@
 <template>
 	<div>
-        {{ squad.name }} <br>
+        {{ squad.name }} <button @click="$emit('removeSquad',squad.id)">x</button>  <br> 
         <chapter-selection-box v-for="chapter in chapters" :key="chapter.id" 
         :value="chapter" :squad-id="squadIdRef" @selectedChapter="addChapterId"
         @deSelectedChapter="removeChapterId"></chapter-selection-box>
@@ -28,12 +28,12 @@ export default Vue.extend({
     },
     methods: {
         addChapterId: function(event: number) {
-            console.log("going to add "+event + " in parent "+ this.squad.name);
+            // console.log("going to add "+event + " in parent "+ this.squad.name);
             this.$store.commit('addChapterToSquad', {squadId: this.squad.id, chapterId: event});
         },
         removeChapterId: function(event: number) {
             this.$store.commit('removeChapterFromSquad', { squadId: this.squad.id, chapterId: event });
-            console.log("going to remove "+event +" in "+this.squad.name);
+            // console.log("going to remove "+event +" in "+this.squad.name);
         }
     },
     computed: {
