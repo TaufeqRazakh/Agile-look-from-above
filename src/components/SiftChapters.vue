@@ -1,5 +1,5 @@
 <template>
-    <div id="chapter">{{matchingChapterName}}</div>
+    <div class="chapter">{{matchingChapterName}}</div>
 </template>
 
 <script lang="ts">
@@ -28,10 +28,10 @@ computed: {
 <style>
 .chapter {
     width: auto;
-    height: auto;
     background-color: lightsalmon;
-    text-justify: auto;
-    font-size: small;
+    font-size: large;
+    color:mediumpurple;
+    margin-top: 1pt;
 }
 </style>
 

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div id="input">
-			<h2>Type in all the Chapters in the team</h2>
+			<h2 id="greeting">Type in all the Chapters in the team</h2>
 			<p v-if="noWarning && noCopies">(hint: This refers to the capabilites or skills in your team, say, cartoonists, machinists, copy writers)</p>
 			<p v-else-if="!noCopies">I sense you already mentioned that chapter</p>
 			<p v-else-if="!noWarning">Lets bundle up all skills in 10 chapters for now</p>
@@ -46,7 +46,6 @@ export default Vue.extend ({
 		}
   	},
   	RemoveChapter: function(event: number) {
-		  // going to update the list by accessing store here
 		this.$store.commit('fixChapterId', event);
 		this.chapterRef = this.$store.state.chapters;  
 	  },
@@ -63,3 +62,31 @@ export default Vue.extend ({
   }
 });
 </script>
+<style>
+#greeting {
+	padding-block-start: 30px;
+}
+#input {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+#list {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;	
+}
+#input h2{
+	color: #42b983;
+}
+#nav {
+	padding: 20px
+}
+#nav a {			
+  color:#42b983;
+}
+</style>

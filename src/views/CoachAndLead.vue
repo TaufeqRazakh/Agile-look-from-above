@@ -1,6 +1,6 @@
 <template>    
     <div id="inputs">
-        <h2>Who is the Agile coach?</h2>
+        <h2 id="greeting">Who is the Agile coach?</h2>
         <p v-if="AgileCoachName === 'Foo' || AgileCoachName === ''">(hint: This is someone who is responsible for creating your team)</p>
         <p v-else>{{AgileCoachName}}</p>
         <input v-model.trim="AgileCoachName" @input="InputCoachName">
@@ -9,6 +9,7 @@
         <p v-else>{{TribeLeadName}}</p>
         <input v-model.trim="TribeLeadName" @input="InputLeadName"> 
         <div id = "nav">
+            <router-link to="/">Go Back</router-link> | 
             <router-link to="/Team">Team Structure</router-link> | 
             <router-link to="/InputStage2">Specify More</router-link>
         </div>
@@ -38,13 +39,15 @@ export default Vue.extend({
 </script>
 
 <style scoped> 
+#greeting{
+    padding-block-start: 30px;
+}
 #inputs {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -mozs-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  padding-block-start: 30px;
 }
 #inputs h2{
 	color: #42b983;
@@ -53,6 +56,7 @@ export default Vue.extend({
   font-weight: bold;
   color: #42b983
 }
+
 
 </style>
 

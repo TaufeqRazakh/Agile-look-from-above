@@ -1,6 +1,6 @@
 <template>
-	<div id="greeting">
-		<h1>Hello! {{greet}}</h1>
+	<div id="message">
+		<h1 id="greeting">Hello! {{greet}}</h1>
 		<h2>This application is meant to illustrate the structure in an Agile team. <br>
 		You can visualize your team in terms of tribes, squads and chapters at any time by 
 		<br> going to the "Team Structure" section after specifying some details.</h2>
@@ -35,18 +35,20 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-#greeting {
+#message {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+#greeting {
   padding-block-start: 30px;
 }
-#greeting h1{
+#message h1{
 	color: #42b983;
 }
-#greeting a {
+#message a {
   font-weight: bold;
   color: #42b983
 }

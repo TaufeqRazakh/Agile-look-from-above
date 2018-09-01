@@ -1,6 +1,6 @@
 <template>
     <div id = "structure">
-        <p>So this is what <span>{{Coach}}</span>'s team looks like</p>
+        <p id="greeting">So this is what <span>{{Coach}}</span>'s team looks like</p>
         <br>
         <div class="container">
             <div class = "squad" v-for="squad in Squads" :key="squad.id">
@@ -33,6 +33,9 @@ export default Vue.extend({
 </script>
 
 <style>
+#greeting {
+    padding-block-start: 30px;
+}
 .container {
     margin: auto;
     list-style: none;
@@ -42,14 +45,14 @@ export default Vue.extend({
     background-color:lavenderblush;
 }
 .coach {
-    background: tomato;
+    background:green;
     width: auto;
     max-width: 200px;
     height: 400px;
     margin-top: 0px;
     margin-left: 4px;
     line-height:400px;
-    color: white;
+    color: aliceblue;
     font-weight: bolder;
     font-size: xx-large;
     text-align: center;
@@ -62,7 +65,7 @@ export default Vue.extend({
     margin-top: 0px;
     margin-left: 4px;
     line-height:400px;
-    color: white;
+    color: aliceblue;
     font-weight: bolder;
     font-size: xx-large;
     text-align: center;
@@ -70,12 +73,12 @@ export default Vue.extend({
 .squad {
     background-color:powderblue;
     width: auto;
-    max-width: 200px;
+    max-width: 150px;
     height: 400px;
     margin-top: 0px;
     margin-left: 4px;
     /* line-height:0px; */
-    color: white;
+    /* color: white; */
     font-weight: bold;
     font-size: xx-large;
     text-align: center;
@@ -86,7 +89,6 @@ export default Vue.extend({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  padding-block-start: 30px;
 }
 #structure a {
   font-weight: bold;

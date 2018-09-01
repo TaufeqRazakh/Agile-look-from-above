@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div id="input">
-			<h2>Now lets set the squads in our tribe</h2>
+			<h2 id="greeting">Now lets set the squads in our tribe</h2>
 			<p v-if="noWarning && noCopies">(hint: Squads are divisions of value addition channels in your tribe. 
 				<br>Each squad contibutes to the final product with a level of autonomy)</p>
 			<p v-else-if="!noCopies">That Squad was already assigned</p>
@@ -64,3 +64,33 @@ export default Vue.extend ({
   }
 });
 </script>
+
+<style>
+#greeting {
+	padding-block-start: 30px;
+}
+#input {
+  font-family: Avenir, Helvetica, Arial, sans-serif; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+#input h2{
+	color: #42b983;
+}
+#list {
+  font-family: Avenir, Helvetica, Arial, sans-serif; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  padding-block-start: 2ex
+}
+#nav {
+	padding: 20px
+}
+#nav a {			
+  color:#42b983;
+}
+</style>
