@@ -25,7 +25,8 @@ export default Vue.extend({
         ChapterSelectionBox
     },
     methods: {
-        putChapter: function(event: boolean) {
+        putChapter: function(event: any) {
+            console.log(event);
 
         }
     }
