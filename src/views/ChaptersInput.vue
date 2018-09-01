@@ -12,6 +12,7 @@
 			:list-item="chapter" @removeItem="RemoveChapter"></item-with-remove-button>	
 		</div>	
 		<div id = "nav">
+			<router-link to="/InputStage1">Go Back</router-link> | 
             <router-link to="/Team">Team Structure</router-link> | 
             <router-link to="/InputStage3">Keep Specifying</router-link>
         </div>

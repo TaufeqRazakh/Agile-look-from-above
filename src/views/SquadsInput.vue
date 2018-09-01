@@ -14,8 +14,8 @@
 			<squad-box v-for="squad in squadRef" :key="squad.id" :squad="squad" @removeSquad="removeSquad"></squad-box>	
 		</div>	
 		<div id = "nav">
-            <router-link to="/Team">Team Structure</router-link> | 
-            <router-link to="/InputStage2">Go Back</router-link>
+			<router-link to="/InputStage2">Go Back</router-link> | 
+            <router-link to="/Team">Team Structure</router-link>
         </div>
 	</div>
 </template>

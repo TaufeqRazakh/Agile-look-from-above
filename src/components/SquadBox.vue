@@ -1,9 +1,9 @@
 <template>
-	<div>
+	<div id = "container">
         {{ squad.name }} <button @click="$emit('removeSquad',squad.id)">x</button>  <br> 
         <chapter-selection-box v-for="chapter in chapters" :key="chapter.id" 
         :value="chapter" :squad-chapter-indexes="squad.chapters" @selectedChapter="addChapterId"
-        @deSelectedChapter="removeChapterId"></chapter-selection-box>
+        @deSelectedChapter="removeChapterId" class="selectionList"></chapter-selection-box>
     </div>
 </template>
 
@@ -43,5 +43,14 @@ export default Vue.extend({
     }
 });
 </script>
+
+<style>
+.selectionList {
+    display: inline-flex;
+    display: -webkit-flex;
+    display: -webkit-inline-flex;
+
+}
+</style>
 
 
