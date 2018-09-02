@@ -24,42 +24,41 @@ import Vue from 'vue';
 import ItemWithRemoveButton from '../components/ItemWithRemoveButton.vue';
 export default Vue.extend ({
   data() {
-  	return {
-		newChapter: '',
-		chapterRef: this.$store.state.chapters,
-		noWarning: true,
-		noCopies: true,
-  	}
+    return {
+    newChapter: '',
+    chapterRef: this.$store.state.chapters,
+    noWarning: true,
+    noCopies: true,
+    };
   },
   components: {
-  	ItemWithRemoveButton
+    ItemWithRemoveButton,
   },
   methods: {
-  	UpdateChapter: function(event: any) {
-  		if(this.$store.state.chapters.length < 10 && this.noCopies) {
-			this.$store.commit('addChapter', this.newChapter);
-			this.newChapter = '';
-			this.noWarning = true;
-		}
-		else if(this.$store.state.chapters.length >=10 ) {
-			this.noWarning = false;
-		}
-  	},
-  	RemoveChapter: function(event: number) {
-		this.$store.commit('fixChapterId', event);
-		this.chapterRef = this.$store.state.chapters;  
-	  },
-	CheckExisting: function(event: any) {
-		for(var i = 0; i< this.chapterRef.length; i++) {
-			if(this.chapterRef[i].name === event.target.value) {
-				this.noCopies = false;
-				break;
-			}
-			else 
-				this.noCopies = true;
-		}
-	}  
-  }
+    UpdateChapter(event: any) {
+      if (this.$store.state.chapters.length < 10 && this.noCopies) {
+      this.$store.commit('addChapter', this.newChapter);
+      this.newChapter = '';
+      this.noWarning = true;
+    } else if (this.$store.state.chapters.length >= 10 ) {
+      this.noWarning = false;
+    }
+    },
+    RemoveChapter(event: number) {
+    this.$store.commit('fixChapterId', event);
+    this.chapterRef = this.$store.state.chapters;
+    },
+  CheckExisting(event: any) {
+    for (let i = 0; i < this.chapterRef.length; i++) {
+      if (this.chapterRef[i].name === event.target.value) {
+        this.noCopies = false;
+        break;
+      } else {
+        this.noCopies = true;
+      }
+    }
+  },
+  },
 });
 </script>
 <style>

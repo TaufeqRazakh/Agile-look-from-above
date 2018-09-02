@@ -8,17 +8,17 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: () =>import('./views/Ready.vue'),
+      component: () => import('./views/Ready.vue'),
     },
     {
       path: '/InputStage1',
       name: 'CoachAndLeader',
-      component:() => import('./views/CoachAndLead.vue'),
+      component: () => import('./views/CoachAndLead.vue'),
     },
     {
       path: '/Team',
       name: 'LiveTeamStructure',
-      component:() => import('./views/TeamStructure.vue'),
+      component: () => import('./views/TeamStructure.vue'),
     },
     {
       path: '/InputStage2',
@@ -29,7 +29,6 @@ export default new Router({
       path: '/InputStage3',
       name: 'Squads',
       component: () => import('./views/SquadsInput.vue'),
-    }
-  ],
-  mode: 'history'
+    },
+  ]
 });

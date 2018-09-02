@@ -15,16 +15,16 @@ export default Vue.extend({
         value: {
             type: Object,
             required: true,
-        }
+        },
     },
     data() {
         return {
             chapters: this.$store.state.chapters,
-        }
+        };
     },
     components: {
-        SiftChapters
-    }
+        SiftChapters,
+    },
 });
 </script>
 

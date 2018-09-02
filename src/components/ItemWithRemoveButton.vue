@@ -8,11 +8,11 @@
 <script lang="ts">
 import Vue from 'vue';
 export default Vue.extend({
-	props: {
-		listItem: {
-		  type: Object,
-		  required: true
-		}
-	}
+  props: {
+    listItem: {
+      type: Object,
+      required: true,
+    },
+  },
 });
 </script>

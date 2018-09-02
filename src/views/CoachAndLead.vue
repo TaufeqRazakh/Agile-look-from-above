@@ -17,25 +17,25 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'; 
+import Vue from 'vue';
 export default Vue.extend({
-    data () {
+    data() {
         return {
             AgileCoachName: this.$store.state.agileCoachName,
             TribeLeadName: this.$store.state.tribeLeadName,
             Dummy: 'dumbdumb',
-        }
+        };
     },
     methods: {
-        InputCoachName: function(event: any) {
+        InputCoachName(event: any) {
             this.$store.commit('addAgileCoachName', event.target.value);
         },
-        InputLeadName: function(event: any) {
+        InputLeadName(event: any) {
             this.$store.commit('addTribeLeadName', event.target.value);
-        }
-                        
-    }
-})
+        },
+
+    },
+});
 </script>
 
 <style scoped> 

@@ -8,39 +8,39 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 import ChapterSelectionBox from './ChapterSelectionBox.vue';
 export default Vue.extend({
     props: {
         squad: {
             type: Object,
             required: true,
-        }
+        },
     },
     data() {
         return {
             chapters: this.$store.state.chapters,
             squadIdRef: this.squad.id,
-        }
+        };
     },
     components: {
-        ChapterSelectionBox
+        ChapterSelectionBox,
     },
     methods: {
-        addChapterId: function(event: number) {
+        addChapterId(event: number) {
             // console.log("going to add "+event + " in parent "+ this.squad.name);
             this.$store.commit('addChapterToSquad', {squadId: this.squad.id, chapterId: event});
         },
-        removeChapterId: function(event: number) {
+        removeChapterId(event: number) {
             this.$store.commit('removeChapterFromSquad', { squadId: this.squad.id, chapterId: event });
             // console.log("going to remove "+event +" in "+this.squad.name);
-        }
+        },
     },
     computed: {
-        checkIfChapterSelected: function() {
+        checkIfChapterSelected() {
 
-        }
-    }
+        },
+    },
 });
 </script>
 

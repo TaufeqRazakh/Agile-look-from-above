@@ -12,7 +12,7 @@ let chaptertest: string;
 
 @Component
 export default class Chaptertest extends Vue {
-    data() {
+    public data() {
         return {
             chaptertest: '',
         };

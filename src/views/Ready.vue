@@ -14,23 +14,23 @@
 </template>
 
 <script <script lang="ts">
-import Vue from 'vue'
-var d = new Date();
-let time = d.getHours();
+import Vue from 'vue';
+const d = new Date();
+const time = d.getHours();
 
 export default Vue.extend({
-	computed: {
-		greet: function() {
-			var greetString : string = "Good Evening";
-			if (time<12) {
-				greetString = "Good Morning";
-			}
-			if(time>12 && time< 16) {
-				greetString = "Good Afternoon";
-			}
-			return greetString;
-		}
-	}
+  computed: {
+    greet() {
+      let greetString: string = 'Good Evening';
+      if (time < 12) {
+        greetString = 'Good Morning';
+      }
+      if (time > 12 && time < 16) {
+        greetString = 'Good Afternoon';
+      }
+      return greetString;
+    },
+  },
 });
 </script>
 

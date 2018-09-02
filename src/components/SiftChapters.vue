@@ -2,8 +2,9 @@
     <div class="chapter">{{matchingChapterName}}</div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script>
+import Vue from 'vue';
+import {Chapter} from '../types';
 export default Vue.extend({
 props: {
     squadChapters: {

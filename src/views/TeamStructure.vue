@@ -24,11 +24,11 @@ export default Vue.extend({
             Coach: this.$store.state.agileCoachName,
             Tribe: this.$store.state.tribeLeadName,
             Squads: this.$store.state.squads,
-        }
+        };
     },
     components: {
-        SiftSquads
-    }
+        SiftSquads,
+    },
 });
 </script>
 
