@@ -1,5 +1,8 @@
 <template>
-    <div class="chapter">{{matchingChapterName}}</div>
+    <div class="test">
+        {{matchingChapterName}}
+        <div v-if="ok" class ="chapter">{{chapter}}</div>
+    </div>  
 </template>
 
 <script>
@@ -15,11 +18,19 @@ props: {
         type: Object,
         required: true,
     }
+},
+data() {
+    return {
+        chapter:'',
+        ok: false,
+    }
 },  
 computed: {
     matchingChapterName: function() {
         if(this.squadChapters.includes(this.actualChapter.id)){
-            return this.actualChapter.name;
+            this.chapter = this.actualChapter.name;
+            this.ok = true;
+            // return this.actualChapter.name;
         }
     }
 }
@@ -27,12 +38,23 @@ computed: {
 </script>
 
 <style>
+.test {
+    flex:1;
+    display:flex;
+    /* flex-basis: auto; */
+    flex-shrink: 1;
+    min-width: 0px;
+    min-height: 0px;
+}
 .chapter {
-    width: auto;
-    background-color: lightsalmon;
-    font-size: large;
-    color:mediumpurple;
+    flex: 1;
+    background-color: rgb(55, 118, 143);
+    font-size: medium;
+    color:rgb(172, 241, 230);
     margin-top: 1pt;
+    flex-shrink: 1;
+    min-width: 0px;
+    min-height: 0px;
+    /* flex-shrink: 1; */
 }
 </style>
-

@@ -1,7 +1,6 @@
 <template>
     <div class="segmentable"> 
-        <div>{{value.name}}</div>   
-        <br>
+        <div id="title">{{value.name}}</div>   
         <sift-chapters v-for="chapter in chapters" v-bind:key="chapter.id" :squad-chapters="value.chapters" 
         :actual-chapter="chapter"></sift-chapters>
     </div>
@@ -29,15 +28,21 @@ export default Vue.extend({
 </script>
 
 <style>
+#title {
+    width: auto;
+    min-height: 50px;
+}
 .segmentable {
-  height: 200px;
-  margin: auto; 
-  display: flex;
+  flex:1;
+  display: flex; 
   flex-direction: column;
+
   font-weight: bold;
   font-size: large;
-  color: aliceblue;
+  color: rgb(84, 150, 194);
+  flex-direction: column;
 }
+
 </style>
 
 

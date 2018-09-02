@@ -45,7 +45,7 @@ export default Vue.extend({
     background-color:lavenderblush;
 }
 .coach {
-    background:green;
+    background:rgb(33, 70, 70);
     width: auto;
     max-width: 200px;
     height: 400px;
@@ -77,11 +77,9 @@ export default Vue.extend({
     height: 400px;
     margin-top: 0px;
     margin-left: 4px;
-    /* line-height:0px; */
-    /* color: white; */
-    font-weight: bold;
-    font-size: xx-large;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 #structure {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
