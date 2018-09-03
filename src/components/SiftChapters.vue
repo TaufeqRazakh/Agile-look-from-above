@@ -23,7 +23,7 @@ props: ['squadChapter'],//,
 // },  
 computed: {
     matchingChapterName: function() {
-        console.log('I have in SiftChapters '+this.squadChapter);
+        // console.log('I have in SiftChapters '+this.squadChapter);
         return this.$store.state.chapters[(this.squadChapter)-1].name;
         // if(this.squadChapters.includes(this.actualChapter.id)){
         //     this.chapter = this.actualChapter.name;

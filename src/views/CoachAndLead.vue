@@ -1,11 +1,11 @@
 <template>    
     <div id="inputs">
         <h2 id="greeting">Who is the Agile coach?</h2>
-        <p v-if="AgileCoachName === 'Foo' || AgileCoachName === ''">(hint: This is someone who is responsible for creating your team)</p>
+        <p v-if="AgileCoachName === 'Coach' || AgileCoachName === ''">(hint: This is someone who is responsible for creating your team)</p>
         <p v-else>{{AgileCoachName}}</p>
         <input v-model.trim="AgileCoachName" @input="InputCoachName">
         <h2>Who is the tribe leader?</h2>
-        <p v-if="TribeLeadName === 'Bar' || TribeLeadName === ''">(hint: This is someone who is responsible for the value your team creates)</p>
+        <p v-if="TribeLeadName === 'Lead' || TribeLeadName === ''">(hint: This is someone who is responsible for the value your team creates)</p>
         <p v-else>{{TribeLeadName}}</p>
         <input v-model.trim="TribeLeadName" @input="InputLeadName"> 
         <team-structure/>

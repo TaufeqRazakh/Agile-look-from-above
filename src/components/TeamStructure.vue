@@ -34,7 +34,7 @@ export default Vue.extend({
             this.Coach= this.$store.state.agileCoachName;
             this.Tribe= this.$store.state.tribeLeadName;
             this.Squads= this.$store.state.squads;
-            console.log("refreshed all values");
+            // console.log("refreshed all values");
         }
     }
 });

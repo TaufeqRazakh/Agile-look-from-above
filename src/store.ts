@@ -31,7 +31,7 @@ export default new Vuex.Store({
       //to fix the chapter id number in the chapter object after removing one
       for (let _i: number = id - 1; _i < state.chapters.length; _i++) {
         state.chapters[_i].id = _i + 1; 
-        console.log("from store "+_i+" "+state.chapters[_i].id+" "+state.chapters[_i].name);
+        // console.log("from store "+_i+" "+state.chapters[_i].id+" "+state.chapters[_i].name);
       }
       //to fix the chapter array in the squad after removing a chapter
       for (let _i: number = 0; _i < state.squads.length; _i++) {
@@ -41,7 +41,7 @@ export default new Vuex.Store({
             state.squads[_i].chapters[_j]=state.squads[_i].chapters[_j]-1;
           }
         }
-        console.log("from store after modifying squad"+state.squads[_i].chapters);
+        // console.log("from store after modifying squad"+state.squads[_i].chapters);
       }
     },
     addSquad(state, name: string) {

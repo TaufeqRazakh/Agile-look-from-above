@@ -27,9 +27,9 @@ export default Vue.extend({
     },
     computed: {
         refresh: function(){
-            this.squad = this.$store.state.squads[this.value-1],
-            this.chapters = this.$store.state.squads[this.value-1].chapters,
-            console.log("I'm at siftSquads and the squad id passed is "+this.value+" I have "+this.chapters);
+            this.squad = this.$store.state.squads[this.value-1];
+            this.chapters = this.$store.state.squads[this.value-1].chapters;
+            // console.log("I'm at siftSquads and the squad id passed is "+this.value+" I have "+this.chapters);
         }
     }
 });
