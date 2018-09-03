@@ -1,7 +1,7 @@
 <template>
-    <div class="test">
+    <div class="chapter">
         {{matchingChapterName}}
-        <div v-if="ok" class ="chapter">{{chapter}}</div>
+        <!-- <div v-if="ok" class ="chapter">{{chapter}}</div> -->
     </div>  
 </template>
 
@@ -9,29 +9,27 @@
 import Vue from 'vue';
 import {Chapter} from '../types';
 export default Vue.extend({
-props: {
-    squadChapters: {
-        type: Array,
-        required: true,
-    },
-    actualChapter: {
-        type: Object,
-        required: true,
-    }
-},
-data() {
-    return {
-        chapter:'',
-        ok: false,
-    }
-},  
+props: ['squadChapter'],//,
+    // actualChapter: {
+    //     type: Object,
+    //     required: true,
+    // }
+
+// data() {
+//     return {
+//         chapter:'',
+//         ok: false,
+//     }
+// },  
 computed: {
     matchingChapterName: function() {
-        if(this.squadChapters.includes(this.actualChapter.id)){
-            this.chapter = this.actualChapter.name;
-            this.ok = true;
+        console.log('I have in SiftChapters '+this.squadChapter);
+        return this.$store.state.chapters[(this.squadChapter)-1].name;
+        // if(this.squadChapters.includes(this.actualChapter.id)){
+        //     this.chapter = this.actualChapter.name;
+        //     this.ok = true;
             // return this.actualChapter.name;
-        }
+        
     }
 }
 });

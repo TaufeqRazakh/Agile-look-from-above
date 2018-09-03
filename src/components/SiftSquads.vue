@@ -1,7 +1,7 @@
 <template>
-    <div class="segmentable"> 
-        <div id="title">{{value.name}}</div>   
-        <sift-chapters v-for="chapter in chapters" v-bind:key="chapter.id" :squad-chapters="value.chapters" 
+    <div class="segmentable">
+        <div id="title">{{squad.name}}</div>  {{refresh}} 
+        <sift-chapters v-for="chapter in chapters" :key="chapter" :squad-chapter="chapter" 
         :actual-chapter="chapter"></sift-chapters>
     </div>
 </template>
@@ -12,18 +12,26 @@ import SiftChapters from './SiftChapters.vue';
 export default Vue.extend({
     props: {
         value: {
-            type: Object,
+            type: Number,
             required: true,
         },
     },
     data() {
         return {
-            chapters: this.$store.state.chapters,
+            squad: this.$store.state.squads[this.value-1],
+            chapters: this.$store.state.squads[this.value-1].chapters,
         };
     },
     components: {
-        SiftChapters,
+        SiftChapters
     },
+    computed: {
+        refresh: function(){
+            this.squad = this.$store.state.squads[this.value-1],
+            this.chapters = this.$store.state.squads[this.value-1].chapters,
+            console.log("I'm at siftSquads and the squad id passed is "+this.value+" I have "+this.chapters);
+        }
+    }
 });
 </script>
 

@@ -3,7 +3,7 @@
         {{ squad.name }} <button @click="$emit('removeSquad',squad.id)">x</button>  <br> 
         <chapter-selection-box v-for="chapter in chapters" :key="chapter.id" 
         :value="chapter" :squad-chapter-indexes="squad.chapters" @selectedChapter="addChapterId"
-        @deSelectedChapter="removeChapterId" class="selectionList"></chapter-selection-box>
+        @deSelectedChapter="removeChapterId" class="selectionList"></chapter-selection-box> {{refresh}}
     </div>
 </template>
 
@@ -39,10 +39,12 @@ export default Vue.extend({
         }
     },
     computed: {
-        checkIfChapterSelected() {
-
-        },
-    },
+        refresh: function() {
+            this.chapters= this.$store.state.chapters;
+            this.squadIdRef= this.squad.id;
+            // console.log("came into SquadBox and refreshed");
+        }
+    }
 });
 </script>
 

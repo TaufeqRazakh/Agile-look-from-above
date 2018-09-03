@@ -2,10 +2,10 @@
     <div id = "structure">
         <p id="greeting">See Below for Team Structure</p>
         <br>
-        <div class="container">
+        <div class="container">{{refresh}}
             <div class = "squad" v-for="squad in Squads" :key="squad.id">
-                <sift-squads :value="squad"></sift-squads>
-            </div>{{refresh}}
+                <sift-squads :value="squad.id"></sift-squads>
+            </div>
             <div class = "tribe">{{Tribe}}</div>
             <div class= "coach">{{Coach}}</div>
         </div>
@@ -34,6 +34,7 @@ export default Vue.extend({
             this.Coach= this.$store.state.agileCoachName;
             this.Tribe= this.$store.state.tribeLeadName;
             this.Squads= this.$store.state.squads;
+            console.log("refreshed all values");
         }
     }
 });

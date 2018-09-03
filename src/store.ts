@@ -25,10 +25,23 @@ export default new Vuex.Store({
     addChapter(state, name: string) {
       state.chapters.push({id: (state.chapters.length) + 1, name, listed: true});
     },
-    fixChapterId(state, id: number) {
+    removeChapter(state, id: number) {
       state.chapters = state.chapters.filter((chapter) => chapter.id !== id);
+      // console.log(id);
+      //to fix the chapter id number in the chapter object after removing one
       for (let _i: number = id - 1; _i < state.chapters.length; _i++) {
-        state.chapters[_i].id = _i + 1;
+        state.chapters[_i].id = _i + 1; 
+        console.log("from store "+_i+" "+state.chapters[_i].id+" "+state.chapters[_i].name);
+      }
+      //to fix the chapter array in the squad after removing a chapter
+      for (let _i: number = 0; _i < state.squads.length; _i++) {
+        state.squads[_i].chapters = state.squads[_i].chapters.filter((chapterRef) => chapterRef !== id);
+        for(let _j: number = 0; _j < state.squads[_i].chapters.length; _j++) {
+          if(state.squads[_i].chapters[_j]>id) {
+            state.squads[_i].chapters[_j]=state.squads[_i].chapters[_j]-1;
+          }
+        }
+        console.log("from store after modifying squad"+state.squads[_i].chapters);
       }
     },
     addSquad(state, name: string) {

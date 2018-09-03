@@ -7,7 +7,7 @@
 			<p v-else-if="!noWarning">Lets bundle up all skills in 10 chapters for now</p>
 			<input type="text" placeholder="audit, design,..." v-model="newChapter" @keyup.enter="UpdateChapter" @input="CheckExisting">
 		</div>
-		<div id = "list">
+		<div id = "list">{{refresh}}
 			<item-with-remove-button v-for="chapter in chapterRef" :key="chapter.id"
 			:list-item="chapter" @removeItem="RemoveChapter"></item-with-remove-button>	
 		</div>
@@ -46,20 +46,25 @@ export default Vue.extend ({
     }
     },
     RemoveChapter(event: number) {
-    this.$store.commit('fixChapterId', event);
+    this.$store.commit('removeChapter', event);
     this.chapterRef = this.$store.state.chapters;
     },
-  CheckExisting(event: any) {
-    for (let i = 0; i < this.chapterRef.length; i++) {
-      if (this.chapterRef[i].name === event.target.value) {
-        this.noCopies = false;
-        break;
-      } else {
-        this.noCopies = true;
+    CheckExisting(event: any) {
+      for (let i = 0; i < this.chapterRef.length; i++) {
+        if (this.chapterRef[i].name === event.target.value) {
+          this.noCopies = false;
+          break;
+        } else {
+          this.noCopies = true;
+        }
       }
+    },
+  },
+  computed: {
+    refresh: function() { 
+      this.chapterRef = this.$store.state.chapters;
     }
-  },
-  },
+  }
 });
 </script>
 <style>
