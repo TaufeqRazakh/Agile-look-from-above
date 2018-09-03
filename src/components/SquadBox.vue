@@ -30,11 +30,13 @@ export default Vue.extend({
         addChapterId(event: number) {
             // console.log("going to add "+event + " in parent "+ this.squad.name);
             this.$store.commit('addChapterToSquad', {squadId: this.squad.id, chapterId: event});
+            // this.$emit('squadModified'); //didn't have to use this for browser
         },
         removeChapterId(event: number) {
             this.$store.commit('removeChapterFromSquad', { squadId: this.squad.id, chapterId: event });
+            // this.$emit('squadModified'); //didn't have to use this for browser
             // console.log("going to remove "+event +" in "+this.squad.name);
-        },
+        }
     },
     computed: {
         checkIfChapterSelected() {

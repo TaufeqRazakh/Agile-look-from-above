@@ -12,10 +12,10 @@
 		</div>
 		<div id = "list">
 			<squad-box v-for="squad in squadRef" :key="squad.id" :squad="squad" @removeSquad="removeSquad"></squad-box>	
-		</div>	
+		</div>
+    <team-structure/>
 		<div id = "nav">
-			<router-link to="/InputStage2">Go Back</router-link> | 
-            <router-link to="/Team">Team Structure</router-link>
+			<router-link to="/InputStage2">Go Back</router-link>
         </div>
 	</div>
 </template>
@@ -23,6 +23,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import SquadBox from '../components/SquadBox.vue';
+import TeamStructure from '../components/TeamStructure.vue';
 export default Vue.extend ({
   data() {
     return {
@@ -34,7 +35,7 @@ export default Vue.extend ({
     };
   },
   components: {
-    SquadBox,
+    SquadBox, TeamStructure
   },
   methods: {
     UpdateSquad(event: any) {
@@ -44,23 +45,26 @@ export default Vue.extend ({
         this.noWarning = true;
     } else {
       this.noWarning = false;
-    }
-  },
-  CheckExisting(event: any) {
-    for (let i = 0; i < this.squadRef.length; i++) {
-      if (this.squadRef[i].name === event.target.value) {
-        this.noCopies = false;
-        break;
-      } else {
-        this.noCopies = true;
       }
-    }
-  },
-  removeSquad(event: number) {
-    this.$store.commit('removeSquad', event);
-    this.squadRef = this.$store.state.squads;
-  },
-  },
+    },
+    CheckExisting(event: any) {
+      for (let i = 0; i < this.squadRef.length; i++) {
+        if (this.squadRef[i].name === event.target.value) {
+          this.noCopies = false;
+          break;
+        } else {
+          this.noCopies = true;
+        }
+      }
+    },
+    removeSquad(event: number) {
+      this.$store.commit('removeSquad', event);
+      this.squadRef = this.$store.state.squads;
+    }//,
+    // UpdateRefs: function() { //I didn't have to use this for browser
+    //   this.squadRef = this.$store.state.squads;
+    // }
+  }
 });
 </script>
 

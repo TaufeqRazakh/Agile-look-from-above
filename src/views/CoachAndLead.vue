@@ -8,9 +8,9 @@
         <p v-if="TribeLeadName === 'Bar' || TribeLeadName === ''">(hint: This is someone who is responsible for the value your team creates)</p>
         <p v-else>{{TribeLeadName}}</p>
         <input v-model.trim="TribeLeadName" @input="InputLeadName"> 
+        <team-structure/>
         <div id = "nav">
             <router-link to="/">Go Back</router-link> | 
-            <router-link to="/Team">Team Structure</router-link> | 
             <router-link to="/InputStage2">Specify More</router-link>
         </div>
     </div>
@@ -18,6 +18,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import TeamStructure from '../components/TeamStructure.vue';
 export default Vue.extend({
     data() {
         return {
@@ -33,8 +34,10 @@ export default Vue.extend({
         InputLeadName(event: any) {
             this.$store.commit('addTribeLeadName', event.target.value);
         },
-
     },
+    components: {
+        TeamStructure
+    }
 });
 </script>
 

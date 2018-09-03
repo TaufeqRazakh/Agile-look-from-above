@@ -10,10 +10,10 @@
 		<div id = "list">
 			<item-with-remove-button v-for="chapter in chapterRef" :key="chapter.id"
 			:list-item="chapter" @removeItem="RemoveChapter"></item-with-remove-button>	
-		</div>	
+		</div>
+    <team-structure/>	
 		<div id = "nav">
 			<router-link to="/InputStage1">Go Back</router-link> | 
-            <router-link to="/Team">Team Structure</router-link> | 
             <router-link to="/InputStage3">Keep Specifying</router-link>
         </div>
 	</div>
@@ -22,6 +22,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import ItemWithRemoveButton from '../components/ItemWithRemoveButton.vue';
+import TeamStructure from '../components/TeamStructure.vue';
 export default Vue.extend ({
   data() {
     return {
@@ -32,7 +33,7 @@ export default Vue.extend ({
     };
   },
   components: {
-    ItemWithRemoveButton,
+    ItemWithRemoveButton, TeamStructure
   },
   methods: {
     UpdateChapter(event: any) {

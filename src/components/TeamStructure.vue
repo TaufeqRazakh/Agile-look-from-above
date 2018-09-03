@@ -1,17 +1,17 @@
 <template>
     <div id = "structure">
-        <p id="greeting">So this is what <span>{{Coach}}</span>'s team looks like</p>
+        <p id="greeting">See Below for Team Structure</p>
         <br>
         <div class="container">
             <div class = "squad" v-for="squad in Squads" :key="squad.id">
                 <sift-squads :value="squad"></sift-squads>
-            </div>
+            </div>{{refresh}}
             <div class = "tribe">{{Tribe}}</div>
             <div class= "coach">{{Coach}}</div>
         </div>
-        <div id = "nav">
+        <!-- <div id = "nav">
             <router-link to="/InputStage3">Go back</router-link>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -29,6 +29,13 @@ export default Vue.extend({
     components: {
         SiftSquads,
     },
+    computed: {
+        refresh: function() {
+            this.Coach= this.$store.state.agileCoachName;
+            this.Tribe= this.$store.state.tribeLeadName;
+            this.Squads= this.$store.state.squads;
+        }
+    }
 });
 </script>
 

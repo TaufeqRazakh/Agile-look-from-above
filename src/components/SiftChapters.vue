@@ -43,8 +43,9 @@ computed: {
     display:flex;
     /* flex-basis: auto; */
     flex-shrink: 1;
-    min-width: 0px;
     min-height: 0px;
+    /* background-color: brown; */
+    margin: 2px;
 }
 .chapter {
     flex: 1;
@@ -52,7 +53,6 @@ computed: {
     font-size: medium;
     color:rgb(172, 241, 230);
     margin-top: 1pt;
-    flex-shrink: 1;
     min-width: 0px;
     min-height: 0px;
     /* flex-shrink: 1; */

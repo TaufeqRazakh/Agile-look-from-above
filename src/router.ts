@@ -15,11 +15,11 @@ export default new Router({
       name: 'CoachAndLeader',
       component: () => import('./views/CoachAndLead.vue'),
     },
-    {
-      path: '/Team',
-      name: 'LiveTeamStructure',
-      component: () => import('./views/TeamStructure.vue'),
-    },
+    // {
+    //   path: '/Team',
+    //   name: 'LiveTeamStructure',
+    //   component: () => import('./views/TeamStructure.vue'),
+    // },
     {
       path: '/InputStage2',
       name: 'Chapters',

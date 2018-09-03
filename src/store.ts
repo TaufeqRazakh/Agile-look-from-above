@@ -7,8 +7,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    agileCoachName : 'Coach',
-    tribeLeadName : 'Lead',
+    agileCoachName : '',
+    tribeLeadName : '',
     chapters: [{id: 1, name: 'chemist', listed: true},
                {id: 2, name: 'web developer', listed: true},
                {id: 3, name: 'molecular biologist', listed: true}],
