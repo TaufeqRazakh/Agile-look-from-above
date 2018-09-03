@@ -51,10 +51,12 @@ export default new Vuex.Store({
       state.squads = state.squads.filter((squad) => squad.id !== id);
     },
     addChapterToSquad(state, payload: SquadInteraction) {
-      state.squads[payload.squadId - 1].chapters.push(payload.chapterId);
-      state.squads[payload.squadId - 1].chapters.sort();
-      console.log(state.squads[payload.squadId - 1].chapters);
+        if(state.squads[payload.squadId - 1].chapters.indexOf(payload.chapterId)>=0) { }
+        else {  state.squads[payload.squadId - 1].chapters.push(payload.chapterId);
+          state.squads[payload.squadId - 1].chapters.sort();
+          // console.log("adding chapter"+state.squads[payload.squadId - 1].chapters);
       // console.log(state.squads[payload.squadId-1].chapters+" "+state.squads[payload.squadId-1].name);
+        }
     },
     removeChapterFromSquad(state, payload: SquadInteraction) {
       state.squads[payload.squadId - 1].chapters = state.squads[payload.squadId - 1].chapters.filter((chapterRef) => chapterRef !== payload.chapterId);

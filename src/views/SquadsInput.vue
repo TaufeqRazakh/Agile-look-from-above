@@ -43,8 +43,8 @@ export default Vue.extend ({
         this.$store.commit('addSquad', event.target.value);
         this.newSquad = '';
         this.noWarning = true;
-    } else {
-      this.noWarning = false;
+      } else {
+        this.noWarning = false;
       }
     },
     CheckExisting(event: any) {

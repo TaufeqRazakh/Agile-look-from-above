@@ -1,7 +1,7 @@
 <template>
     <div>
         <span>{{statePhase}}</span>
-        <input type="checkbox" id="chapter-option" @input="inputListener" v-model="status">
+        <input type="checkbox" id="chapter-option" v-model="status">
         <label for="chapter-option">{{ value.name }}</label>
     </div>
 </template>
@@ -20,13 +20,13 @@ export default Vue.extend({
     },
     data() {
         return {
-            status: false
+            status: false,
         }
     },
-    methods: {
-        inputListener: function() {
-            //yes the status is a bit twisted if you check the console so check for negation if selected
-            if(this.status != true) {
+    watch: {
+        status: function() {
+            // console.log("i hear something about "+this.status+ " "+ event+ " "+event2);
+            if(this.status == true) {
                 this.$emit("selectedChapter", this.value.id);
                 // console.log(this.value.id+" is what you selected");
             }
@@ -34,7 +34,22 @@ export default Vue.extend({
                 this.$emit("deSelectedChapter", this.value.id);
                 // console.log(this.value.id+" is what you deselected");
             }
+            // if(this.status == true) {
+            //     this.$emit("selectedChapter", this.value.id);
+            //     console.log(this.value.id+" is what you selected");
+            // }
+            // else {
+            //     this.$emit("deSelectedChapter", this.value.id);
+            //     console.log(this.value.id+" is what you deselected");
+            // }
         }
+    },
+    methods: {
+        // inputListener: function() {
+        //     console.log("I can hear you");
+        //     //yes the status is a bit twisted if you check the console so check for negation if selected
+            
+        // }
     },
     computed: {
         statePhase: function() {
