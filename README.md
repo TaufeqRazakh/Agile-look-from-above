@@ -15,9 +15,9 @@ ___
 
 
 > TODO
-* [x]Make a protoype single page application~~
-* [ ]Functional CRUD
-* [ ]Enable user login
+* [x] Make a protoype single page application~~
+* [ ] Functional CRUD
+* [ ] Enable user login
 
 ## Screenshots
 
