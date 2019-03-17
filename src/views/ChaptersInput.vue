@@ -36,34 +36,31 @@ export default Vue.extend ({
     ItemWithRemoveButton, TeamStructure
   },
   methods: {
-    UpdateChapter(event: any) {
-      if (this.$store.state.chapters.length < 10 && this.noCopies) {
-      this.$store.commit('addChapter', this.newChapter);
-      this.newChapter = '';
-      this.noWarning = true;
-    } else if (this.$store.state.chapters.length >= 10 ) {
-      this.noWarning = false;
-    }
-    },
-    RemoveChapter(event: number) {
-    this.$store.commit('removeChapter', event);
-    this.chapterRef = this.$store.state.chapters;
-    },
-    CheckExisting(event: any) {
-      for (let i = 0; i < this.chapterRef.length; i++) {
-        if (this.chapterRef[i].name === event.target.value) {
-          this.noCopies = false;
-          break;
-        } else {
-          this.noCopies = true;
-        }
-      }
-    },
-  },
-  computed: {
-    refresh: function() { 
-      this.chapterRef = this.$store.state.chapters;
-    }
+  	UpdateChapter: function(event: any) {
+  		if(this.$store.state.chapters.length < 10 && this.noCopies) {
+			this.$store.commit('addChapter', this.newChapter);
+			this.newChapter = '';
+			this.noWarning = true;
+		}
+		else if(this.$store.state.chapters.length >=10 ) {
+			this.noWarning = false;
+		}
+  	},
+  	RemoveChapter: function(event: number) {
+		  // going to update the list by accessing store here
+		this.$store.commit('fixChapterId', event);
+		this.chapterRef = this.$store.state.chapters;  
+	},
+	CheckExisting: function(event: any) {
+		for(var i = 0; i< this.chapterRef.length; i++) {
+			if(this.chapterRef[i].name === event.target.value) {
+				this.noCopies = false;
+				break;
+			}
+			else 
+				this.noCopies = true;
+		}
+	} 
   }
 });
 </script>

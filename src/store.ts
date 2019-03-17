@@ -8,12 +8,12 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     agileCoachName : 'Coach',
-    tribeLeadName : 'Lead',
-    chapters: [{id: 1, name: 'chemist', listed: true},
-               {id: 2, name: 'web developer', listed: true},
-               {id: 3, name: 'molecular biologist', listed: true}],
-    squads: [ {id: 1, name: 'DNA Sampling', lead: 'Vlad', chapters: [1, 2]},
-              {id: 2, name: 'Protien Substitute', lead: 'yuri', chapters: [1, 2, 3]} ],
+    tribeLeadName : 'Project Lead',
+    chapters: [{id: 1, name: 'Application Engineer', listed: true},
+               {id: 2, name: 'Inside Sales', listed: true},
+               {id: 3, name: 'Service Engineer', listed: true}],
+    squads: [ {id: 1, name: 'Cement Industry', lead: 'Vlad', chapters: [1, 2]},
+              {id: 2, name: 'Pulp and Paper Industry', lead: 'yuri', chapters: [1, 2, 3]} ],
   },
   mutations: {
     addAgileCoachName(state, name) {

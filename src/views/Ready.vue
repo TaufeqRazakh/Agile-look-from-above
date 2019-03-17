@@ -14,9 +14,11 @@
 </template>
 
 <script <script lang="ts">
-import Vue from 'vue';
-const d = new Date();
-const time = d.getHours();
+
+import Vue from 'vue'
+
+var d = new Date();
+let time = d.getHours();
 
 export default Vue.extend({
   computed: {

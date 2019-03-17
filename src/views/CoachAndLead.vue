@@ -17,8 +17,10 @@
 </template>
 
 <script lang="ts">
+
 import Vue from 'vue';
 import TeamStructure from '../components/TeamStructure.vue';
+
 export default Vue.extend({
     data() {
         return {
